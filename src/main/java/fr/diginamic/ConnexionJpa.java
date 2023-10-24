@@ -8,10 +8,12 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import fr.diginamic.entites.Region;
+
 public class ConnexionJpa {
 
 	public static void main(String[] args) {
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory ("recensement");
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory ("recensementJpa");
 		EntityManager em = entityManagerFactory.createEntityManager();
 		EntityTransaction transaction= em.getTransaction();
 		transaction.begin();
@@ -24,7 +26,6 @@ public class ConnexionJpa {
 				System.out.println("Region non trouvée" );
 			}
 			Region region = new Region();
-			region.setId(50);
 			region.setNom("Midi-Pyrenee");
 			em.persist(region);
 			
